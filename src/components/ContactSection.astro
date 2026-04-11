@@ -1,0 +1,54 @@
+---
+import ContactForm from './ContactForm.tsx';
+---
+<section class="relative px-12 py-28 overflow-hidden" style="background: #0d0d0d; border-top: 1px solid rgba(192,57,43,0.12);">
+
+  <!-- Grid background -->
+  <div class="absolute inset-0 pointer-events-none" style="
+    background-image: linear-gradient(rgba(192,57,43,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  "></div>
+
+  <!-- Glow -->
+  <div class="absolute pointer-events-none" style="width:500px; height:500px; border-radius:50%; background: radial-gradient(circle, rgba(192,57,43,0.12) 0%, transparent 70%); right:-100px; bottom:-100px;"></div>
+
+  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+    <!-- LEFT: Context -->
+    <div>
+      <div class="flex items-center gap-4 mb-16">
+        <span class="text-[9px] font-black tracking-[5px] uppercase text-[var(--red)]">Get In Touch</span>
+        <div class="flex-1 h-px" style="background: rgba(192,57,43,0.2);"></div>
+      </div>
+
+      <h2 class="font-black uppercase leading-[0.88] mb-6" style="font-size: clamp(36px, 5vw, 64px);">
+        Ready to<br>
+        <span class="text-[var(--red)]">Hustle</span><br>
+        Smarter?
+      </h2>
+
+      <p class="text-[13px] leading-relaxed mb-10" style="color: rgba(245,240,227,0.4); font-family: Georgia, serif; font-weight: 400; max-width: 380px;">
+        Tell us about your business. We'll review your submission and reach out to schedule a free discovery call — no commitment, no pressure.
+      </p>
+
+      <div class="flex flex-col gap-3">
+        {[
+          'Free 30-min discovery call',
+          'Response within 24 hours',
+          'No commitment required',
+        ].map(item => (
+          <div class="flex items-center gap-3 text-[10px] font-black tracking-[2px] uppercase" style="color: rgba(245,240,227,0.35);">
+            <div class="w-1.5 h-1.5 rounded-full bg-[var(--red)] flex-shrink-0"></div>
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="p-8 md:p-12" style="background: rgba(245,240,227,0.01); border: 1px solid rgba(245,240,227,0.05);">
+      <ContactForm client:load />
+    </div>
+
+  </div>
+</section>

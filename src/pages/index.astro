@@ -1,12 +1,15 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import Footer from '../components/Footer.astro';
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>H.U.S.T.L.E Consulting LLC</title>
-  </head>
-  <body>
-    <p>Coming soon.</p>
-  </body>
-</html>
+<BaseLayout title="H.U.S.T.L.E Consulting LLC — Changing the world one hustle at a time">
+  <Nav />
+  <main>
+    <HeroSection />
+    <ServicesSection />
+  </main>
+  <Footer />
+</BaseLayout>

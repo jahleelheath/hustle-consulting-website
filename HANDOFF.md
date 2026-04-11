@@ -1,8 +1,26 @@
-# H.U.S.T.L.E Consulting LLC — Project Handoff
+# Resume Prompt
 
-Use this file to resume the build in a new chat session with full context.
+> [!IMPORTANT]
+> Paste this exactly into a new session to pick up where we left off:
+
+```
+I'm building the H.U.S.T.L.E Consulting LLC website. Read `/Users/jahleel/hustle-consulting-website/HANDOFF.md` for full context, then read the implementation plan at `/Users/jahleel/AI-Knowledgebase/docs/superpowers/plans/2026-04-10-hustle-consulting-website.md`. Tasks 1, 2, and 3 are complete. Continue from Task 4.
+
+IMPORTANT: Use subagent-driven development throughout. For every task:
+1. Dispatch a fresh implementer subagent with the full task text + context (never let it read the plan itself — provide all needed content directly in the prompt)
+2. After the implementer reports DONE, dispatch a spec compliance reviewer subagent — it reads the relevant files and verifies everything in the spec was built and nothing extra was added. It must return VERDICT: ✅ SPEC COMPLIANT or VERDICT: ❌ ISSUES FOUND with a bullet list.
+3. Only after spec passes, dispatch a code quality reviewer subagent — it checks for bugs, correctness issues, accessibility problems, and code quality. It returns VERDICT: ✅ APPROVED or VERDICT: ❌ NEEDS FIXES with required changes.
+4. If either reviewer finds issues, dispatch the implementer to fix them, then re-run the relevant reviewer. Do not proceed to the next task until both reviews pass.
+5. After all tasks are complete, run a final full-codebase reviewer before closing out.
+
+This two-stage review process is critical — it has already caught real bugs and accessibility issues in this project.
+```
 
 ---
+
+# H.U.S.T.L.E Consulting LLC — Project Handoff
+
+Use this file to resume the build in a new session with full context.
 
 ## What This Project Is
 
@@ -56,6 +74,8 @@ A 4-page dark-immersive 3D business website for **H.U.S.T.L.E Consulting LLC**.
 | Logo | Handshake (black + red hands) |
 | Vibe | Dark immersive 3D — animated grid floor, mouse parallax, floating tags, glow orb |
 
+CSS vars available everywhere: `--bg`, `--cream`, `--red`, `--surface`, `--border`
+
 ---
 
 ## Site Structure
@@ -89,8 +109,8 @@ hustle-consulting-website/
 │   ├── layouts/
 │   │   └── BaseLayout.astro ✅ done
 │   ├── components/
-│   │   ├── Nav.astro              ← Task 3
-│   │   ├── Footer.astro           ← Task 3
+│   │   ├── Nav.astro              ✅ done (Task 3)
+│   │   ├── Footer.astro           ✅ done (Task 3)
 │   │   ├── HeroSection.astro      ← Task 4
 │   │   ├── ServicesSection.astro  ← Task 5
 │   │   ├── AboutSection.astro     ← Task 7
@@ -124,8 +144,8 @@ hustle-consulting-website/
 |---|---|---|
 | 1 | Project Scaffold | ✅ Complete |
 | 2 | Global Styles + Base Layout | ✅ Complete |
-| 3 | Nav + Footer Components | ⏳ Next |
-| 4 | Hero Section | ⏳ Pending |
+| 3 | Nav + Footer Components | ✅ Complete |
+| 4 | Hero Section | ⏳ Next |
 | 5 | Services Section | ⏳ Pending |
 | 6 | Home Page | ⏳ Pending |
 | 7 | About Section + Page | ⏳ Pending |
@@ -136,13 +156,42 @@ hustle-consulting-website/
 | 12 | Contact Form + Contact Page | ⏳ Pending |
 | 13 | Build + Railway Deploy | ⏳ Pending |
 
+### What Task 3 produced
+
+- **`Nav.astro`**: A sophisticated, fixed top navigation bar.
+  - Glassmorphic design (`backdrop-filter: blur`, semi-transparent background).
+  - Dynamic scroll listener that deepens border opacity on scroll.
+  - Active page detection with `aria-current="page"`.
+  - Responsive visibility (links hidden on mobile, shown on `md:` breakpoints).
+  - Premium "Book a Call" CTA with hover transitions.
+- **`Footer.astro`**: A minimal, elegant footer strip.
+  - Subtle red top border.
+  - Branded tagline and copyright information.
+  - Correct text color inheritance and accessibility labels.
+
 ---
 
-## How to Resume
+## Subagent-Driven Development Process
 
-Tell Claude in the new session:
+This project mandates a multi-stage subagent review workflow for every task. This process was established during Task 3 to ensure high-quality, spec-compliant code.
 
-> "I'm building the H.U.S.T.L.E Consulting LLC website. Read `/Users/jahleel/hustle-consulting-website/HANDOFF.md` for full context, then read the implementation plan at `/Users/jahleel/AI-Knowledgebase/docs/superpowers/plans/2026-04-10-hustle-consulting-website.md`. Tasks 1 and 2 are complete. Continue from Task 3 using subagent-driven development."
+### The Workflow
+
+1.  **IMPLEMENTER**: Creates the code based on the task description.
+2.  **SPEC COMPLIANCE REVIEWER**: Verifies all requirements are met and no extra code was added. Returns a binary verdict.
+3.  **CODE QUALITY REVIEWER**: Checks for bugs, accessibility (A11y), responsive design issues, and idiomatic code patterns.
+
+### Rationale: Why we do this
+
+AI agents often focus on completing the functional task but may miss subtle "production-grade" details. This workflow creates a "checks and balances" system that prevents technical debt from accumulating.
+
+### Specific Bugs Caught in Task 3
+
+The subagent review process proved its value immediately by catching the following issues in Task 3:
+- **Responsive Layout**: Nav links were overlapping on mobile devices; fixed by hiding them behind a menu/breakpoint.
+- **Accessibility (A11y)**: Missing `aria-current="page"` on active links, which is critical for screen readers.
+- **Semantic HTML**: Missing `aria-label` on the header `<nav>` element and the logo link.
+- **CSS Fragility**: The footer copyright text relied on implicit parent colors which caused it to disappear on certain background transitions; fixed by explicitly setting color vars.
 
 ---
 

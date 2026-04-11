@@ -1,0 +1,57 @@
+<section class="px-12 py-28" style="border-top: 1px solid rgba(192,57,43,0.12);">
+  <div class="flex items-center gap-4 mb-16">
+    <span class="text-[9px] font-black tracking-[5px] uppercase text-[var(--red)]">Who We Are</span>
+    <div class="flex-1 h-px" style="background: rgba(192,57,43,0.2);"></div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+    <!-- LEFT: Mission + Acronym -->
+    <div>
+      <h2 class="font-black uppercase leading-[0.88] mb-8" style="font-size: clamp(36px, 5vw, 60px);">
+        We lead.<br>
+        <span class="text-[var(--red)]">You</span><br>
+        <span style="-webkit-text-stroke: 1.5px var(--cream); color: transparent;">Grow.</span>
+      </h2>
+      <p class="text-[14px] leading-relaxed mb-8" style="color: rgba(245,240,227,0.5); font-family: Georgia, serif; font-weight: 400;">
+        H.U.S.T.L.E Consulting LLC was built for the local business owner who knows they have something real — but needs the strategy, technology, and execution to take it to the next level. We bring AI-powered consulting and custom development to businesses ready to grow.
+      </p>
+
+      <div class="flex flex-col gap-0">
+        {[
+          ['H', 'Humbly'],
+          ['U', 'Use'],
+          ['S', 'Skills'],
+          ['T', 'That'],
+          ['L', 'Lead'],
+          ['E', 'Everyone'],
+        ].map(([letter, word]) => (
+          <div class="acronym-row group flex items-baseline gap-3 py-2.5 cursor-default transition-all duration-300" style="border-bottom: 1px solid rgba(245,240,227,0.05);">
+            <span class="text-[22px] font-black text-[var(--red)] w-6 leading-none">{letter}</span>
+            <span class="text-[11px] font-black tracking-[3px] uppercase" style="color: rgba(245,240,227,0.7);">{word}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- RIGHT: Team -->
+    <div>
+      <p class="text-[9px] font-black tracking-[4px] uppercase mb-7" style="color: rgba(245,240,227,0.3);">The Team</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { img: '/assets/jahleel.jpg', name: 'Jahleel', role: 'Founder & CEO', bio: 'Business consulting, AI strategy & full-stack development.' },
+          { img: '/brain/b3a95ab0-75c9-49e2-907b-036aa7ce71e5/princess_headshot_placeholder_1775881270063.png', name: 'Princess Uzoma', role: 'Business Dev & Finance', bio: 'Economics (UW) · Finance MS (U of Miami). Built for growth strategy.' },
+        ].map(m => (
+          <div class="team-card group relative overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2" style="border: 1px solid rgba(245,240,227,0.07); background: rgba(245,240,227,0.02);">
+            <img src={m.img} alt={m.name} class="w-full object-cover object-top transition-all duration-500 group-hover:grayscale-0" style="aspect-ratio: 3/4; filter: grayscale(20%);" />
+            <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--red)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <div class="p-4" style="border-top: 1px solid rgba(245,240,227,0.06);">
+              <p class="text-[13px] font-black uppercase tracking-[1px] mb-1">{m.name}</p>
+              <p class="text-[9px] font-bold tracking-[2px] uppercase text-[var(--red)] mb-2">{m.role}</p>
+              <p class="text-[10px] leading-relaxed" style="color: rgba(245,240,227,0.35); font-family: Georgia, serif; font-weight: 400;">{m.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

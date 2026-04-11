@@ -1,0 +1,131 @@
+<section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
+
+  <!-- Animated grid floor -->
+  <div id="grid-floor" class="absolute inset-0 pointer-events-none" style="
+    background-image: linear-gradient(rgba(192,57,43,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.1) 1px, transparent 1px);
+    background-size: 64px 64px;
+    transform: perspective(700px) rotateX(22deg) scale(1.5);
+    transform-origin: center 80%;
+    animation: gridScroll 6s linear infinite;
+    opacity: 0.7;
+  "></div>
+
+  <!-- Glow orb -->
+  <div id="glow-orb" class="absolute pointer-events-none" style="
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,57,43,0.15) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    animation: orbPulse 4s ease-in-out infinite alternate;
+  "></div>
+
+  <!-- Ghost background text -->
+  <div class="absolute font-black uppercase pointer-events-none select-none" style="
+    font-size: clamp(100px, 22vw, 260px);
+    color: rgba(192,57,43,0.04);
+    letter-spacing: -6px;
+    animation: bgDrift 18s ease-in-out infinite alternate;
+    white-space: nowrap;
+  ">HUSTLE</div>
+
+  <!-- Floating service tags -->
+  <div class="absolute top-[22%] left-[6%] float-tag" style="animation: ft1 8s ease-in-out infinite alternate;">Business Consulting</div>
+  <div class="absolute top-[18%] right-[6%] float-tag" style="animation: ft2 10s ease-in-out infinite alternate;">AI Strategy</div>
+  <div class="absolute bottom-[28%] left-[8%] float-tag" style="animation: ft3 9s ease-in-out infinite alternate;">App Development</div>
+  <div class="absolute bottom-[24%] right-[7%] float-tag" style="animation: ft1 7s ease-in-out infinite alternate-reverse;">Web Development</div>
+
+  <!-- Hero content -->
+  <div id="hero-inner" class="relative z-10 text-center px-6" style="animation: heroEntrance 1.2s cubic-bezier(0.23,1,0.32,1) both;">
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <div class="w-8 h-px bg-[var(--red)]"></div>
+      <span class="text-[10px] font-black tracking-[6px] uppercase text-[var(--red)]">Humbly Use Skills That Lead Everyone</span>
+      <div class="w-8 h-px bg-[var(--red)]"></div>
+    </div>
+
+    <h1 class="font-black uppercase leading-[0.88] mb-2" style="font-size: clamp(52px, 10vw, 110px); letter-spacing: -2px; text-shadow: 0 0 80px rgba(192,57,43,0.2);">
+      Built for<br>
+      <span class="text-[var(--red)]">Local</span><br>
+      <span style="-webkit-text-stroke: 2px var(--cream); color: transparent;">Business.</span>
+    </h1>
+
+    <p class="text-[12px] tracking-[4px] uppercase mt-6 mb-10" style="color: rgba(245,240,227,0.4);">
+      Changing the world one hustle at a time
+    </p>
+
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="/contact" class="px-10 py-4 bg-[var(--red)] text-white text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:-translate-y-1" style="box-shadow: 0 0 40px rgba(192,57,43,0.5), 0 20px 60px rgba(0,0,0,0.5);">
+        Book a Discovery Call
+      </a>
+      <a href="/services" class="px-10 py-4 text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:border-[var(--cream)] hover:text-[var(--cream)]" style="border: 1.5px solid rgba(245,240,227,0.25); color: rgba(245,240,227,0.6);">
+        Our Services
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30" style="animation: scrollBounce 2s ease-in-out infinite;">
+    <span class="text-[8px] tracking-[3px] uppercase font-bold">Scroll</span>
+    <div class="w-px h-8" style="background: linear-gradient(to bottom, var(--red), transparent);"></div>
+  </div>
+</section>
+
+<style>
+  .float-tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border: 1px solid rgba(192,57,43,0.3);
+    background: rgba(10,10,10,0.6);
+    backdrop-filter: blur(8px);
+    color: rgba(245,240,227,0.5);
+    pointer-events: none;
+  }
+  @keyframes gridScroll {
+    from { background-position: 0 0; }
+    to { background-position: 0 64px; }
+  }
+  @keyframes orbPulse {
+    from { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    to { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+  }
+  @keyframes bgDrift {
+    from { transform: translateX(-3%); }
+    to { transform: translateX(3%); }
+  }
+  @keyframes ft1 {
+    from { transform: translateY(0) rotate(-1deg); }
+    to { transform: translateY(-18px) rotate(1deg); }
+  }
+  @keyframes ft2 {
+    from { transform: translateY(0) rotate(1deg); }
+    to { transform: translateY(-22px) rotate(-1deg); }
+  }
+  @keyframes ft3 {
+    from { transform: translateY(0) rotate(-2deg); }
+    to { transform: translateY(-14px) rotate(0deg); }
+  }
+  @keyframes heroEntrance {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+</style>
+
+<script>
+  // Mouse parallax logic
+  document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5);
+    const y = (e.clientY / window.innerHeight - 0.5);
+    const inner = document.getElementById('hero-inner');
+    const grid = document.getElementById('grid-floor');
+    const orb = document.getElementById('glow-orb');
+    
+    if (inner) inner.style.transform = `translateX(${x * 14}px) translateY(${y * 10}px)`;
+    if (grid) grid.style.transform = `perspective(700px) rotateX(${22 + y * 3}deg) scale(1.5) translateX(${x * 20}px)`;
+    if (orb) orb.style.transform = `translate(calc(-50% + ${x * 40}px), calc(-50% + ${y * 30}px))`;
+  });
+</script>
