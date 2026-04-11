@@ -14,7 +14,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@astrojs/vercel": "^7.0.0",
+    "@astrojs/vercel": "latest",
     "@astrojs/react": "^5.0.3",
     "astro": "^6.1.5",
     "gsap": "^3.14.2",
