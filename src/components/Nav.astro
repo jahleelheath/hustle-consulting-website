@@ -3,15 +3,16 @@ const links = [
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
 ];
+const pathname = Astro.url.pathname;
 ---
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 py-5 transition-all duration-300" style="background: rgba(10,10,10,0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(192,57,43,0.2);">
-  <a href="/" class="flex flex-col no-underline">
+<nav id="main-nav" aria-label="Main" class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 py-5 transition-all duration-300" style="background: rgba(10,10,10,0.7); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(192,57,43,0.2);">
+  <a href="/" aria-label="H.U.S.T.L.E Consulting LLC — Home" class="flex flex-col no-underline">
     <span class="text-[15px] font-black tracking-[4px] uppercase text-[var(--cream)]">H.U.S.T.L.E</span>
     <span class="text-[8px] font-bold tracking-[3px] uppercase text-[var(--red)]">Consulting LLC</span>
   </a>
-  <div class="flex items-center gap-9">
+  <div class="hidden md:flex items-center gap-9">
     {links.map(l => (
-      <a href={l.href} class="text-[10px] font-black tracking-[3px] uppercase text-[var(--cream)] opacity-50 hover:opacity-100 transition-opacity no-underline">{l.label}</a>
+      <a href={l.href} aria-current={pathname === l.href ? 'page' : undefined} class="text-[10px] font-black tracking-[3px] uppercase text-[var(--cream)] opacity-50 hover:opacity-100 transition-opacity no-underline">{l.label}</a>
     ))}
     <a href="/contact" class="text-[10px] font-black tracking-[2px] uppercase px-5 py-2.5 border border-[var(--red)] text-[var(--red)] hover:bg-[var(--red)] hover:text-white transition-all no-underline">Book a Call</a>
   </div>
