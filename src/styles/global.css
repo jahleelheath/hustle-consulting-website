@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0a;
+  --bg: #080808;
   --cream: #F5F0E3;
   --red: #C0392B;
+  --red-glow: rgba(192,57,43,0.12);
   --surface: rgba(245, 240, 227, 0.03);
   --border: rgba(245, 240, 227, 0.07);
+  --border-red: rgba(192,57,43,0.15);
 }
 
 * {
@@ -47,6 +49,25 @@ body {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 
-.btn-press:active {
-  transform: scale(0.97);
+.btn-press { transition: transform 0.12s ease; }
+.btn-press:active { transform: scale(0.97); }
+
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Red left border sweep on hover rows */
+.row-hover {
+  position: relative;
+  transition: background 0.3s ease, padding-left 0.3s ease;
 }
+.row-hover::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--red);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.row-hover:hover::before { transform: scaleY(1); }
+.row-hover:hover { background: rgba(192,57,43,0.04); padding-left: 16px; }

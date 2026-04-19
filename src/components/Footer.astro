@@ -1,4 +1,29 @@
-<footer class="flex items-center justify-between px-12 py-6" style="border-top: 1px solid rgba(192,57,43,0.12);">
-  <span class="text-[9px] tracking-[2px] uppercase opacity-20 text-[var(--cream)]">© 2026 H.U.S.T.L.E Consulting LLC. All rights reserved.</span>
-  <span class="text-[9px] tracking-[2px] uppercase text-[var(--red)] opacity-50">Changing the world one hustle at a time</span>
+<footer style="border-top: 1px solid var(--border-red);">
+  <div class="max-w-[1300px] mx-auto px-6 md:px-12 py-10">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <!-- Brand -->
+      <div>
+        <span class="text-[13px] font-black tracking-[4px] uppercase text-[var(--cream)]">H.U.S.T.L.E</span>
+        <span class="text-[9px] font-bold tracking-[3px] uppercase text-[var(--red)] block mt-0.5">Consulting LLC</span>
+      </div>
+
+      <!-- Nav links -->
+      <div class="flex items-center gap-8">
+        {[
+          { href: '/', label: 'Home' },
+          { href: '/services', label: 'Services' },
+          { href: '/about', label: 'About' },
+          { href: '/contact', label: 'Contact' },
+        ].map(l => (
+          <a href={l.href} class="text-[9px] font-black tracking-[2px] uppercase no-underline transition-opacity hover:opacity-100" style="color: rgba(245,240,227,0.35);">{l.label}</a>
+        ))}
+      </div>
+
+      <!-- Tagline + copyright -->
+      <div class="text-right">
+        <p class="text-[9px] font-black tracking-[2px] uppercase text-[var(--red)] opacity-60">Changing the world one hustle at a time</p>
+        <p class="text-[8px] tracking-[1px] uppercase mt-1" style="color: rgba(245,240,227,0.2);">© 2026 H.U.S.T.L.E Consulting LLC</p>
+      </div>
+    </div>
+  </div>
 </footer>

@@ -1,62 +1,75 @@
-<section id="hero" class="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden pt-20">
+<section id="hero" class="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden pt-24 pb-16">
 
+  <!-- Rich background -->
+  <div class="absolute inset-0 pointer-events-none" style="
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(192,57,43,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 80%, rgba(192,57,43,0.08) 0%, transparent 50%),
+      #080808;
+  "></div>
+
+  <!-- Animated grid floor -->
   <div id="grid-floor" class="absolute inset-0 pointer-events-none" style="
-    background-image: linear-gradient(rgba(192,57,43,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.1) 1px, transparent 1px);
-    background-size: 64px 64px;
-    transform: perspective(700px) rotateX(22deg) scale(1.5);
-    transform-origin: center 80%;
-    animation: gridScroll 6s linear infinite;
-    opacity: 0.7;
+    background-image: linear-gradient(rgba(192,57,43,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.07) 1px, transparent 1px);
+    background-size: 80px 80px;
+    transform: perspective(800px) rotateX(25deg) scale(1.6);
+    transform-origin: center 85%;
+    animation: gridScroll 8s linear infinite;
+    opacity: 0.6;
+    bottom: -20%;
+    top: 40%;
   "></div>
 
-  <div id="glow-orb" class="absolute pointer-events-none" style="
-    width: 600px; height: 600px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(192,57,43,0.15) 0%, transparent 70%);
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
-    animation: orbPulse 4s ease-in-out infinite alternate;
-  "></div>
-
-  <div class="absolute font-black uppercase pointer-events-none select-none" style="
-    font-size: clamp(100px, 22vw, 260px);
-    color: rgba(192,57,43,0.04);
-    letter-spacing: -6px;
-    animation: bgDrift 18s ease-in-out infinite alternate;
+  <!-- Ghost HUSTLE text -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 font-black uppercase pointer-events-none select-none leading-none" style="
+    font-size: clamp(120px, 28vw, 320px);
+    color: rgba(192,57,43,0.035);
+    letter-spacing: -8px;
     white-space: nowrap;
+    animation: bgDrift 20s ease-in-out infinite alternate;
+    right: -4%;
   ">HUSTLE</div>
 
-  <div class="absolute top-[22%] left-[6%] float-tag" style="animation: ft1 8s ease-in-out infinite alternate;">Business Consulting</div>
-  <div class="absolute top-[18%] right-[6%] float-tag" style="animation: ft2 10s ease-in-out infinite alternate;">AI Strategy</div>
-  <div class="absolute bottom-[28%] left-[8%] float-tag" style="animation: ft3 9s ease-in-out infinite alternate;">App Development</div>
-  <div class="absolute bottom-[24%] right-[7%] float-tag" style="animation: ft1 7s ease-in-out infinite alternate-reverse;">Web Development</div>
+  <!-- Floating service tags — desktop only -->
+  <div class="hidden lg:block absolute top-[28%] right-[8%] float-tag" style="animation: ft2 10s ease-in-out infinite alternate;">AI Strategy</div>
+  <div class="hidden lg:block absolute bottom-[32%] right-[6%] float-tag" style="animation: ft1 8s ease-in-out infinite alternate-reverse;">App Development</div>
 
-  <div id="hero-inner" class="relative z-10 text-left px-6 w-full max-w-[1200px] mx-auto" style="animation: heroEntrance 1.2s cubic-bezier(0.23,1,0.32,1) both;">
-    <div class="flex items-center gap-3 mb-5">
-      <div class="w-8 h-px bg-[var(--red)]"></div>
-      <span class="text-[10px] font-black tracking-[6px] uppercase text-[var(--red)]">Humbly Use Skills That Lead Everyone</span>
-      <div class="w-8 h-px bg-[var(--red)]"></div>
+  <!-- Main content -->
+  <div class="relative z-10 w-full max-w-[1300px] mx-auto px-6 md:px-12">
+
+    <!-- Eyebrow -->
+    <div class="flex items-center gap-3 mb-8 reveal">
+      <div class="w-6 h-px bg-[var(--red)]"></div>
+      <span class="text-[9px] font-black tracking-[5px] uppercase text-[var(--red)]">Humbly Use Skills That Lead Everyone</span>
     </div>
 
-    <h1 class="reveal font-black uppercase leading-[0.88] mb-2" style="font-size: clamp(52px, 10vw, 110px); letter-spacing: -2px; text-shadow: 0 0 80px rgba(192,57,43,0.2);">
-      Built for<br>
-      <span class="text-[var(--red)]">Local</span><br>
-      <span style="-webkit-text-stroke: 2px var(--cream); color: transparent;">Business.</span>
+    <!-- Headline -->
+    <h1 class="font-black uppercase leading-[0.85] mb-0 reveal reveal-delay-1" style="font-size: clamp(56px, 11vw, 130px); letter-spacing: -3px;">
+      Built<br>
+      <span class="text-[var(--red)]">for</span> Local<br>
+      <span style="-webkit-text-stroke: 2px rgba(245,240,227,0.6); color: transparent;">Business.</span>
     </h1>
 
-    <p class="reveal reveal-delay-1 text-[12px] tracking-[4px] uppercase mt-6 mb-10" style="color: rgba(245,240,227,0.4);">
-      Changing the world one hustle at a time
-    </p>
+    <!-- Divider + tagline -->
+    <div class="flex items-center gap-5 mt-8 mb-10 reveal reveal-delay-2">
+      <div class="w-12 h-px" style="background: rgba(245,240,227,0.2);"></div>
+      <p class="text-[11px] tracking-[4px] uppercase" style="color: rgba(245,240,227,0.35);">Changing the world one hustle at a time</p>
+    </div>
 
-    <div class="reveal reveal-delay-2 flex gap-4 flex-wrap">
-      <a href="/contact" class="btn-press px-10 py-4 bg-[var(--red)] text-white text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:-translate-y-1" style="box-shadow: 0 0 40px rgba(192,57,43,0.5), 0 20px 60px rgba(0,0,0,0.5);">
+    <!-- CTAs -->
+    <div class="flex gap-4 flex-wrap reveal reveal-delay-3">
+      <a href="/contact" class="btn-press inline-flex items-center gap-3 px-8 py-4 bg-[var(--red)] text-white text-[11px] font-black tracking-[3px] uppercase no-underline" style="box-shadow: 0 0 60px rgba(192,57,43,0.4), 0 20px 60px rgba(0,0,0,0.5);">
         Book a Discovery Call
+        <span class="text-[14px]">→</span>
       </a>
-      <a href="/services" class="btn-press px-10 py-4 text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:border-[var(--cream)] hover:text-[var(--cream)]" style="border: 1.5px solid rgba(245,240,227,0.25); color: rgba(245,240,227,0.6);">
+      <a href="/services" class="btn-press inline-flex items-center gap-3 px-8 py-4 text-[11px] font-black tracking-[3px] uppercase no-underline hover:bg-[rgba(245,240,227,0.05)] transition-colors" style="border: 1px solid rgba(245,240,227,0.2); color: rgba(245,240,227,0.6);">
         Our Services
       </a>
     </div>
   </div>
 
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30" style="animation: scrollBounce 2s ease-in-out infinite;">
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="opacity: 0.25; animation: scrollBounce 2s ease-in-out infinite;">
     <span class="text-[8px] tracking-[3px] uppercase font-bold">Scroll</span>
     <div class="w-px h-8" style="background: linear-gradient(to bottom, var(--red), transparent);"></div>
   </div>
@@ -69,39 +82,27 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     padding: 10px 16px;
-    border: 1px solid rgba(192,57,43,0.3);
-    background: rgba(10,10,10,0.6);
-    backdrop-filter: blur(8px);
-    color: rgba(245,240,227,0.5);
+    border: 1px solid rgba(192,57,43,0.25);
+    background: rgba(8,8,8,0.7);
+    backdrop-filter: blur(12px);
+    color: rgba(245,240,227,0.4);
     pointer-events: none;
   }
   @keyframes gridScroll {
     from { background-position: 0 0; }
-    to { background-position: 0 64px; }
-  }
-  @keyframes orbPulse {
-    from { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-    to { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+    to { background-position: 0 80px; }
   }
   @keyframes bgDrift {
-    from { transform: translateX(-3%); }
-    to { transform: translateX(3%); }
+    from { transform: translateY(-50%) translateX(0); }
+    to { transform: translateY(-50%) translateX(3%); }
   }
   @keyframes ft1 {
     from { transform: translateY(0) rotate(-1deg); }
-    to { transform: translateY(-18px) rotate(1deg); }
+    to { transform: translateY(-16px) rotate(1deg); }
   }
   @keyframes ft2 {
     from { transform: translateY(0) rotate(1deg); }
-    to { transform: translateY(-22px) rotate(-1deg); }
-  }
-  @keyframes ft3 {
-    from { transform: translateY(0) rotate(-2deg); }
-    to { transform: translateY(-14px) rotate(0deg); }
-  }
-  @keyframes heroEntrance {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+    to { transform: translateY(-20px) rotate(-1deg); }
   }
   @keyframes scrollBounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
@@ -110,15 +111,12 @@
 </style>
 
 <script>
-  document.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5);
-    const y = (e.clientY / window.innerHeight - 0.5);
-    const inner = document.getElementById('hero-inner');
-    const grid = document.getElementById('grid-floor');
-    const orb = document.getElementById('glow-orb');
-    
-    if (inner) inner.style.transform = `translateX(${x * 14}px)`;
-    if (grid) grid.style.transform = `perspective(700px) rotateX(${22 + y * 3}deg) scale(1.5) translateX(${x * 20}px)`;
-    if (orb) orb.style.transform = `translate(calc(-50% + ${x * 40}px), calc(-50% + ${y * 30}px))`;
-  });
+  if (!window.__hustleHeroParallax) {
+    window.__hustleHeroParallax = true;
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5);
+      const grid = document.getElementById('grid-floor');
+      if (grid) grid.style.transform = `perspective(800px) rotateX(${25 + (e.clientY / window.innerHeight - 0.5) * 3}deg) scale(1.6) translateX(${x * 20}px)`;
+    }, { passive: true });
+  }
 </script>

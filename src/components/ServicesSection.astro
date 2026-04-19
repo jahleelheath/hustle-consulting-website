@@ -1,27 +1,41 @@
-<section class="px-6 md:px-12 py-20 md:py-28" style="border-top: 1px solid rgba(192,57,43,0.15);">
-  <div class="reveal flex items-center gap-4 mb-16">
-    <span class="text-[9px] font-black tracking-[5px] uppercase text-[var(--red)]">What We Do</span>
-    <div class="flex-1 h-px" style="background: rgba(192,57,43,0.2);"></div>
-  </div>
+<section class="py-24 md:py-32" style="border-top: 1px solid var(--border-red);">
+  <div class="max-w-[1300px] mx-auto px-6 md:px-12">
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-0.5">
-    {[
-      { num: '01', title: 'Business\nConsulting', desc: 'Strategic guidance for local businesses ready to grow. We diagnose where you are, plan where you\'re going, and help you execute.' },
-      { num: '02', title: 'AI\nStrategy', desc: 'We bring AI to your business — practically, not theoretically. Real tools, real workflows, real results for your operation.' },
-      { num: '03', title: 'App & Web\nDevelopment', desc: 'Custom apps and websites built to convert. From idea to live product — designed, built, and deployed.' },
-    ].map((s, i) => (
-      <div class={`reveal reveal-delay-${i + 1} service-card group relative px-8 py-10 cursor-pointer transition-all duration-500 hover:-translate-y-1.5`} style="border: 1px solid rgba(245,240,227,0.05); background: rgba(245,240,227,0.01);">
-        <div class="absolute top-0 left-0 w-0.5 h-0 bg-[var(--red)] transition-all duration-500 group-hover:h-full"></div>
+    <!-- Section label -->
+    <div class="flex items-center gap-4 mb-16 reveal">
+      <span class="text-[9px] font-black tracking-[5px] uppercase text-[var(--red)]">What We Do</span>
+      <div class="flex-1 h-px" style="background: rgba(192,57,43,0.2);"></div>
+    </div>
 
-        <div class="text-[11px] font-black tracking-[3px] text-[var(--red)] mb-5 opacity-60">{s.num}</div>
-        <h3 class="text-[22px] font-black uppercase leading-none mb-4 whitespace-pre-line">{s.title}</h3>
-        <p class="text-[12px] leading-relaxed font-normal" style="color: rgba(245,240,227,0.4); font-family: Georgia, serif;">{s.desc}</p>
+    <!-- Headline -->
+    <h2 class="font-black uppercase leading-[0.88] mb-16 reveal reveal-delay-1" style="font-size: clamp(36px, 6vw, 72px); letter-spacing: -2px;">
+      Every tool<br>
+      <span class="text-[var(--red)]">you need</span><br>
+      <span style="-webkit-text-stroke: 1.5px rgba(245,240,227,0.5); color: transparent;">to grow.</span>
+    </h2>
 
-        <div class="flex items-center gap-2 mt-6 text-[9px] font-black tracking-[3px] uppercase text-[var(--red)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <a href="/services" class="btn-press no-underline text-[var(--red)]">Learn more</a>
-          <span>→</span>
-        </div>
-      </div>
-    ))}
+    <!-- Service rows -->
+    <div class="flex flex-col" style="border-top: 1px solid rgba(245,240,227,0.06);">
+      {[
+        { num: '01', title: 'Business Consulting', desc: 'Strategic guidance for local businesses ready to grow. We diagnose where you are, plan where you\'re going, and help you execute.' },
+        { num: '02', title: 'AI Strategy', desc: 'Real AI tools for your operation — not theory. We identify what fits and implement it so your team actually uses it.' },
+        { num: '03', title: 'App Development', desc: 'Custom mobile and web apps built from scratch. From scoping to deployment — we own the whole process.' },
+        { num: '04', title: 'Web Development', desc: 'Professional sites built to convert. Fast, SEO-ready, and designed to represent your brand the right way.' },
+      ].map((s, i) => (
+        <a href="/services" class={`row-hover group flex items-center gap-6 md:gap-10 py-7 md:py-8 no-underline reveal reveal-delay-${i + 1}`} style="border-bottom: 1px solid rgba(245,240,227,0.06);">
+          <span class="text-[11px] font-black tracking-[3px] text-[var(--red)] w-7 shrink-0 opacity-60">{s.num}</span>
+          <h3 class="text-[18px] md:text-[26px] font-black uppercase leading-none flex-shrink-0 w-[160px] md:w-[260px]">{s.title}</h3>
+          <p class="hidden md:block text-[12px] leading-relaxed flex-1" style="color: rgba(245,240,227,0.4); font-family: Georgia, serif; font-weight: 400;">{s.desc}</p>
+          <span class="ml-auto text-[var(--red)] text-[18px] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-2">→</span>
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 reveal">
+      <a href="/contact" class="btn-press inline-flex items-center gap-3 px-8 py-4 bg-[var(--red)] text-white text-[11px] font-black tracking-[3px] uppercase no-underline" style="box-shadow: 0 0 40px rgba(192,57,43,0.3);">
+        Book a Discovery Call →
+      </a>
+    </div>
   </div>
 </section>
