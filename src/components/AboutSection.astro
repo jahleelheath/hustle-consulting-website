@@ -5,7 +5,6 @@
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-    <!-- LEFT: Mission + Acronym -->
     <div>
       <h2 class="font-black uppercase leading-[0.88] mb-8" style="font-size: clamp(36px, 5vw, 60px);">
         We lead.<br>
@@ -33,13 +32,12 @@
       </div>
     </div>
 
-    <!-- RIGHT: Team -->
     <div>
       <p class="text-[9px] font-black tracking-[4px] uppercase mb-7" style="color: rgba(245,240,227,0.3);">The Team</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
           { img: '/assets/jahleel.jpg', name: 'Jahleel', role: 'Founder & CEO', bio: 'Business consulting, AI strategy & full-stack development.' },
-          { img: '/brain/b3a95ab0-75c9-49e2-907b-036aa7ce71e5/princess_headshot_placeholder_1775881270063.png', name: 'Princess Uzoma', role: 'Business Dev & Finance', bio: 'Economics (UW) · Finance MS (U of Miami). Built for growth strategy.' },
+          { img: '/assets/princess.jpg', name: 'Princess Uzoma', role: 'Business Dev & Finance', bio: 'Economics (UW) · Finance MS (U of Miami). Built for growth strategy.' },
         ].map(m => (
           <div class="team-card group relative overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2" style="border: 1px solid rgba(245,240,227,0.07); background: rgba(245,240,227,0.02);">
             <img src={m.img} alt={m.name} class="w-full object-cover object-top transition-all duration-500 group-hover:grayscale-0" style="aspect-ratio: 3/4; filter: grayscale(20%);" />

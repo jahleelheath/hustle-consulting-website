@@ -1,6 +1,5 @@
 <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
 
-  <!-- Animated grid floor -->
   <div id="grid-floor" class="absolute inset-0 pointer-events-none" style="
     background-image: linear-gradient(rgba(192,57,43,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.1) 1px, transparent 1px);
     background-size: 64px 64px;
@@ -10,7 +9,6 @@
     opacity: 0.7;
   "></div>
 
-  <!-- Glow orb -->
   <div id="glow-orb" class="absolute pointer-events-none" style="
     width: 600px; height: 600px; border-radius: 50%;
     background: radial-gradient(circle, rgba(192,57,43,0.15) 0%, transparent 70%);
@@ -18,7 +16,6 @@
     animation: orbPulse 4s ease-in-out infinite alternate;
   "></div>
 
-  <!-- Ghost background text -->
   <div class="absolute font-black uppercase pointer-events-none select-none" style="
     font-size: clamp(100px, 22vw, 260px);
     color: rgba(192,57,43,0.04);
@@ -27,13 +24,11 @@
     white-space: nowrap;
   ">HUSTLE</div>
 
-  <!-- Floating service tags -->
   <div class="absolute top-[22%] left-[6%] float-tag" style="animation: ft1 8s ease-in-out infinite alternate;">Business Consulting</div>
   <div class="absolute top-[18%] right-[6%] float-tag" style="animation: ft2 10s ease-in-out infinite alternate;">AI Strategy</div>
   <div class="absolute bottom-[28%] left-[8%] float-tag" style="animation: ft3 9s ease-in-out infinite alternate;">App Development</div>
   <div class="absolute bottom-[24%] right-[7%] float-tag" style="animation: ft1 7s ease-in-out infinite alternate-reverse;">Web Development</div>
 
-  <!-- Hero content -->
   <div id="hero-inner" class="relative z-10 text-center px-6" style="animation: heroEntrance 1.2s cubic-bezier(0.23,1,0.32,1) both;">
     <div class="flex items-center justify-center gap-3 mb-5">
       <div class="w-8 h-px bg-[var(--red)]"></div>
@@ -61,7 +56,6 @@
     </div>
   </div>
 
-  <!-- Scroll indicator -->
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30" style="animation: scrollBounce 2s ease-in-out infinite;">
     <span class="text-[8px] tracking-[3px] uppercase font-bold">Scroll</span>
     <div class="w-px h-8" style="background: linear-gradient(to bottom, var(--red), transparent);"></div>
@@ -116,7 +110,6 @@
 </style>
 
 <script>
-  // Mouse parallax logic
   document.addEventListener('mousemove', (e) => {
     const x = (e.clientX / window.innerWidth - 0.5);
     const y = (e.clientY / window.innerHeight - 0.5);

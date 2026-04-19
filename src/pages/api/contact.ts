@@ -6,7 +6,6 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-// Exported for unit testing
 export async function handleContactPost(data: LeadData): Promise<{ status: number; body: any }> {
   const { firstName, lastName, businessName, email, service, message } = data;
 

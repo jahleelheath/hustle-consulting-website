@@ -21,13 +21,6 @@ const {
   </head>
   <body>
     <slot />
-    <script>
-      import { gsap } from 'gsap';
-      import { ScrollTrigger } from 'gsap/ScrollTrigger';
-      gsap.registerPlugin(ScrollTrigger);
-      window.__gsap = gsap;
-      window.__ScrollTrigger = ScrollTrigger;
-    </script>
   </body>
 </html>
 <style is:global>
