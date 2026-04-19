@@ -1,12 +1,12 @@
 <div class="reveal" style="border-top: 1px solid var(--border-red); border-bottom: 1px solid var(--border-red); background: rgba(192,57,43,0.04);">
   <div class="max-w-[1300px] mx-auto px-6 md:px-12">
-    <div class="grid grid-cols-3 divide-x" style="divide-color: rgba(245,240,227,0.07);">
+    <div class="grid grid-cols-3">
       {[
         { num: '4', label: 'Core Services' },
         { num: 'AI', label: 'Powered Strategy' },
         { num: '100%', label: 'Local Business Focus' },
-      ].map(s => (
-        <div class="flex flex-col items-center justify-center py-6 px-4 text-center">
+      ].map((s, i) => (
+        <div class="flex flex-col items-center justify-center py-6 px-4 text-center" style={i > 0 ? 'border-left: 1px solid rgba(245,240,227,0.08)' : ''}>
           <span class="font-black text-[var(--red)]" style="font-size: clamp(22px, 4vw, 36px); letter-spacing: -1px;">{s.num}</span>
           <span class="text-[8px] md:text-[9px] font-black tracking-[3px] uppercase mt-1" style="color: rgba(245,240,227,0.35);">{s.label}</span>
         </div>

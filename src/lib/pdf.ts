@@ -84,6 +84,7 @@ export async function generateLeadPDF(data: LeadData): Promise<Uint8Array> {
   for (const word of words) {
     const test = line ? `${line} ${word}` : word;
     if (regularFont.widthOfTextAtSize(test, 12) > maxWidth) {
+      if (y < 65) break;
       page.drawText(line, { x: leftX, y, size: 12, font: regularFont, color: cream });
       y -= 18;
       line = word;
@@ -91,7 +92,7 @@ export async function generateLeadPDF(data: LeadData): Promise<Uint8Array> {
       line = test;
     }
   }
-  if (line) {
+  if (line && y >= 65) {
     page.drawText(line, { x: leftX, y, size: 12, font: regularFont, color: cream });
   }
 

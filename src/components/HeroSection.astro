@@ -111,8 +111,8 @@
 </style>
 
 <script>
-  if (!window.__hustleHeroParallax) {
-    window.__hustleHeroParallax = true;
+  if (!(window as any).__hustleHeroParallax) {
+    (window as any).__hustleHeroParallax = true;
     document.addEventListener('mousemove', (e) => {
       const x = (e.clientX / window.innerWidth - 0.5);
       const grid = document.getElementById('grid-floor');

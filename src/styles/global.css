@@ -52,6 +52,9 @@ body {
 .btn-press { transition: transform 0.12s ease; }
 .btn-press:active { transform: scale(0.97); }
 
+.form-name-grid { grid-template-columns: 1fr; }
+@media (min-width: 480px) { .form-name-grid { grid-template-columns: 1fr 1fr; } }
+
 .reveal-delay-4 { transition-delay: 0.4s; }
 
 /* Red left border sweep on hover rows */

@@ -25,9 +25,10 @@ const pathname = Astro.url.pathname;
   </button>
 </nav>
 
-<div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 transition-all duration-300 pointer-events-none" style="background: rgba(10,10,10,0.97); opacity: 0; transform: translateY(-8px);">
+<!-- z-[49]: sits below nav bar (z-50) so hamburger X renders on top, above all page content -->
+<div id="mobile-menu" class="fixed inset-0 z-[49] flex flex-col items-center justify-center gap-10 transition-all duration-300 pointer-events-none" style="background: rgba(10,10,10,0.97); opacity: 0; transform: translateY(-8px);">
   {links.map(l => (
-    <a href={l.href} class="text-[28px] font-black tracking-[6px] uppercase text-[var(--cream)] no-underline hover:text-[var(--red)] transition-colors">{l.label}</a>
+    <a href={l.href} class="text-[28px] font-black tracking-[6px] uppercase no-underline transition-colors hover:text-[var(--red)]" style={l.href === pathname ? 'color: var(--red)' : 'color: var(--cream)'}>{l.label}</a>
   ))}
   <a href="/contact" class="mt-4 px-10 py-4 bg-[var(--red)] text-white text-[13px] font-black tracking-[3px] uppercase no-underline" style="box-shadow: 0 0 40px rgba(192,57,43,0.4);">Book a Call</a>
 </div>
@@ -54,15 +55,33 @@ const pathname = Astro.url.pathname;
 </style>
 
 <script>
-  const nav = document.getElementById('main-nav');
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
 
+  // Query nav live in scroll handler to avoid stale DOM ref across navigations
   if (!window.__hustleNavScrolled) {
     window.__hustleNavScrolled = true;
     window.addEventListener('scroll', () => {
-      nav?.classList.toggle('scrolled', window.scrollY > 40);
+      document.getElementById('main-nav')?.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
+  }
+
+  function lockScroll() {
+    const scrollY = window.scrollY;
+    document.body.dataset.scrollY = String(scrollY);
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflowY = 'scroll';
+  }
+
+  function unlockScroll() {
+    const scrollY = parseInt(document.body.dataset.scrollY || '0');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflowY = '';
+    window.scrollTo(0, scrollY);
   }
 
   toggle?.addEventListener('click', () => {
@@ -70,7 +89,7 @@ const pathname = Astro.url.pathname;
     menu?.classList.toggle('open');
     toggle.classList.toggle('open');
     toggle.setAttribute('aria-expanded', String(!isOpen));
-    document.body.style.overflow = isOpen ? '' : 'hidden';
+    isOpen ? unlockScroll() : lockScroll();
   });
 
   menu?.querySelectorAll('a').forEach(link => {
@@ -78,7 +97,10 @@ const pathname = Astro.url.pathname;
       menu.classList.remove('open');
       toggle?.classList.remove('open');
       toggle?.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      unlockScroll();
     });
   });
+
+  // Ensure scroll is always restored if user navigates away with menu open
+  window.addEventListener('pagehide', unlockScroll);
 </script>

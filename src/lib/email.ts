@@ -48,7 +48,7 @@ export async function sendLeadEmail(data: LeadData, pdfBytes: Uint8Array): Promi
     attachments: [
       {
         filename: `lead-${data.firstName.toLowerCase()}-${data.lastName.toLowerCase()}.pdf`,
-        content: Buffer.from(pdfBytes).toString('base64'),
+        content: Buffer.from(pdfBytes),
       },
     ],
   });
