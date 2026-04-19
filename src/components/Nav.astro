@@ -39,7 +39,7 @@ const pathname = Astro.url.pathname;
   #mobile-menu.open {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: all;
+    pointer-events: auto;
   }
   #menu-toggle.open .ham-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
@@ -58,9 +58,12 @@ const pathname = Astro.url.pathname;
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
 
-  window.addEventListener('scroll', () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 40);
-  });
+  if (!window.__hustleNavScrolled) {
+    window.__hustleNavScrolled = true;
+    window.addEventListener('scroll', () => {
+      nav?.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+  }
 
   toggle?.addEventListener('click', () => {
     const isOpen = menu?.classList.contains('open');
