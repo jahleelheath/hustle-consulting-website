@@ -1,4 +1,4 @@
-<section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
+<section id="hero" class="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden pt-20">
 
   <div id="grid-floor" class="absolute inset-0 pointer-events-none" style="
     background-image: linear-gradient(rgba(192,57,43,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.1) 1px, transparent 1px);
@@ -29,28 +29,28 @@
   <div class="absolute bottom-[28%] left-[8%] float-tag" style="animation: ft3 9s ease-in-out infinite alternate;">App Development</div>
   <div class="absolute bottom-[24%] right-[7%] float-tag" style="animation: ft1 7s ease-in-out infinite alternate-reverse;">Web Development</div>
 
-  <div id="hero-inner" class="relative z-10 text-center px-6" style="animation: heroEntrance 1.2s cubic-bezier(0.23,1,0.32,1) both;">
-    <div class="flex items-center justify-center gap-3 mb-5">
+  <div id="hero-inner" class="relative z-10 text-left px-6 w-full max-w-[1200px] mx-auto" style="animation: heroEntrance 1.2s cubic-bezier(0.23,1,0.32,1) both;">
+    <div class="flex items-center gap-3 mb-5">
       <div class="w-8 h-px bg-[var(--red)]"></div>
       <span class="text-[10px] font-black tracking-[6px] uppercase text-[var(--red)]">Humbly Use Skills That Lead Everyone</span>
       <div class="w-8 h-px bg-[var(--red)]"></div>
     </div>
 
-    <h1 class="font-black uppercase leading-[0.88] mb-2" style="font-size: clamp(52px, 10vw, 110px); letter-spacing: -2px; text-shadow: 0 0 80px rgba(192,57,43,0.2);">
+    <h1 class="reveal font-black uppercase leading-[0.88] mb-2" style="font-size: clamp(52px, 10vw, 110px); letter-spacing: -2px; text-shadow: 0 0 80px rgba(192,57,43,0.2);">
       Built for<br>
       <span class="text-[var(--red)]">Local</span><br>
       <span style="-webkit-text-stroke: 2px var(--cream); color: transparent;">Business.</span>
     </h1>
 
-    <p class="text-[12px] tracking-[4px] uppercase mt-6 mb-10" style="color: rgba(245,240,227,0.4);">
+    <p class="reveal reveal-delay-1 text-[12px] tracking-[4px] uppercase mt-6 mb-10" style="color: rgba(245,240,227,0.4);">
       Changing the world one hustle at a time
     </p>
 
-    <div class="flex gap-4 justify-center flex-wrap">
-      <a href="/contact" class="px-10 py-4 bg-[var(--red)] text-white text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:-translate-y-1" style="box-shadow: 0 0 40px rgba(192,57,43,0.5), 0 20px 60px rgba(0,0,0,0.5);">
+    <div class="reveal reveal-delay-2 flex gap-4 flex-wrap">
+      <a href="/contact" class="btn-press px-10 py-4 bg-[var(--red)] text-white text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:-translate-y-1" style="box-shadow: 0 0 40px rgba(192,57,43,0.5), 0 20px 60px rgba(0,0,0,0.5);">
         Book a Discovery Call
       </a>
-      <a href="/services" class="px-10 py-4 text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:border-[var(--cream)] hover:text-[var(--cream)]" style="border: 1.5px solid rgba(245,240,227,0.25); color: rgba(245,240,227,0.6);">
+      <a href="/services" class="btn-press px-10 py-4 text-[11px] font-black tracking-[3px] uppercase no-underline transition-all duration-300 hover:border-[var(--cream)] hover:text-[var(--cream)]" style="border: 1.5px solid rgba(245,240,227,0.25); color: rgba(245,240,227,0.6);">
         Our Services
       </a>
     </div>
@@ -117,7 +117,7 @@
     const grid = document.getElementById('grid-floor');
     const orb = document.getElementById('glow-orb');
     
-    if (inner) inner.style.transform = `translateX(${x * 14}px) translateY(${y * 10}px)`;
+    if (inner) inner.style.transform = `translateX(${x * 14}px)`;
     if (grid) grid.style.transform = `perspective(700px) rotateX(${22 + y * 3}deg) scale(1.5) translateX(${x * 20}px)`;
     if (orb) orb.style.transform = `translate(calc(-50% + ${x * 40}px), calc(-50% + ${y * 30}px))`;
   });
